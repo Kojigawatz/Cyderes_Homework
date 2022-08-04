@@ -1,0 +1,17 @@
+written in notepad++ - Enable Wordwrap for ease of reading, please and thank you.
+
+CYDERES Telemetry Skills Challenge - Reflection
+
+So this is quite a bit different from things I have activity done in my job. While the conceptuatl design is similar, learning the syntax was probably the hardest issue. I'm used to working in json formatted files all day, so the formatting and such wasn't terrible (in my eyes), though I wrote it with the intent purpose of being easy to read, and not necessarily saving on any processing.
+ 
+Originally, I was wanting to input via a file, do the transformation, then output via a file. I found very quickly that I was having issues reading from a file. After spending the first day familiarizing myself with the syntax via the Elastic Logstash site, I spent the better part of the second day trying to troubleshoot reading from a file. After the inevitable day of unfortunately not getting overly far, I gave up, and instead opted for a static input that would actually work.
+  
+The overall grok pattern wasn't terribly hard to grasp. What was impossible for me to grasp was for some reason, as I was pulling data, some fields would end up with a static space in the front of them that I could not seem to space out, ignore, or anything else. Some pieces I could get rather easy, but it was after the - - that started to throw me. I spent a good deal time longer than I am proud to admit in trying to fix it. Alas, I never actually did. Instead, I started to just work on chopping up the string after the fact, which is why my grok match is a bit less elegant than it could be.
+   
+I found out about using kv to split key valued pairs, which I thought would work really well, but again, because of awkward spacing that I was having trouble using, it was a bit difficult for me to make work properly. Additionally, because of that is why I used the if to mutate the description field, mainly as a means of executing the task and getting the value I was looking for.
+	
+Finally, I used mutate to replace the value for the severity and remove a bunch of fields that I didn't think really added much value to the output, but could be added back in as necessary. I had no issues with doing the output into json file or format.
+ 
+As a whole, it was definitely a learning experience, and while I definitely got frustrated at a few things, and clearly 'brute forced' some work to ensure my output matched as expected, it was a fun experience.
+
+Thanks.
